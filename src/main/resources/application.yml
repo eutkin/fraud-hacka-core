@@ -3,10 +3,16 @@ micronaut:
     name: sakuga-rule-engine
   metrics:
     enabled: true
-#otel:
-#  traces:
-#    exporter: otlp,otlp,logging
-#  exclusions:
-#    - /health
-#otel.exporter.otlp.endpoint: http://localhost:4317
+  otel:
+    enabled: false
+otel:
+  logs:
+    exporter: otlp, logging
+  metrics:
+    exporter: otlp, logging
+  traces:
+    exporter: otlp, logging
+  exclusions:
+    - /health
+otel.exporter.otlp.endpoint: http://localhost:4317
 #redis.uri: redis://localhost

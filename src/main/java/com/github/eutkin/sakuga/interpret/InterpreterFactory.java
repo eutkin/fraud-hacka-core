@@ -1,17 +1,16 @@
-package com.github.eutkin.sakuga.interpret.open;
+package com.github.eutkin.sakuga.interpret;
 
-import com.github.eutkin.sakuga.interpret.internal.Interpreter;
 import com.github.eutkin.sakuga.interpret.internal.SakugaInterpreter;
 import com.github.eutkin.sakuga.state.AttributeState;
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Prototype;
 
 @Factory
-public class InterpreterAPI {
+class InterpreterFactory {
 
     private final AttributeState state;
 
-    public InterpreterAPI(AttributeState state) {
+    public InterpreterFactory(AttributeState state) {
         this.state = state;
     }
 

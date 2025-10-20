@@ -7,4 +7,6 @@ import java.util.List;
 public interface AttributeState {
 
     List<Attribute> attributes();
+
+    void add(Attribute attribute);
 }

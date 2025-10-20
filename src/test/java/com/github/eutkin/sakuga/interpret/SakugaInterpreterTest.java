@@ -2,16 +2,19 @@ package com.github.eutkin.sakuga.interpret;
 
 import com.github.eutkin.sakuga.domain.tree.ConditionLeaf;
 import com.github.eutkin.sakuga.domain.tree.ConditionNode;
-import com.github.eutkin.sakuga.interpret.internal.Interpreter;
-import com.github.eutkin.sakuga.interpret.internal.SakugaInterpreter;
-import com.github.eutkin.sakuga.state.AttributeState;
-import com.github.eutkin.sakuga.state.internal.MockAttributeState;
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
 
+@MicronautTest
 class SakugaInterpreterTest {
+
+    @Inject
+    private Provider<Interpreter> interpreter;
 
     @Test
     void toStringTest() {
@@ -38,9 +41,8 @@ class SakugaInterpreterTest {
                 "amount", 100.42
         );
 
-        AttributeState attributeState = new MockAttributeState();
-        Interpreter interpreter = new SakugaInterpreter(attributeState.attributes());
-        Boolean result = interpreter.interpret(event, root);
+        Boolean result = interpreter.get().interpret(event, root);
+
         System.out.println(result);
     }
 

@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="DEBUG">
+<Configuration status="WARN" packages="org.apache.logging.log4j.layout.template.json">
     <Appenders>
-        <Console name="LogToConsole" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <!-- Консольный аппендер с JSON-шаблоном -->
+        <Console name="ConsoleJsonAppender" target="SYSTEM_OUT">
+            <JsonTemplateLayout eventTemplateUri="classpath:EcsLayout.json" compact="true" eventEol="true">
+            </JsonTemplateLayout>
         </Console>
+
     </Appenders>
+
     <Loggers>
-        <Logger name="com.github.eutkin.sakuga" level="debug" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        <Root level="error">
-            <AppenderRef ref="LogToConsole"/>
+        <!-- Уровень логирования для корневого логгера -->
+        <Root level="info">
+            <AppenderRef ref="ConsoleJsonAppender"/>
         </Root>
+        <!-- Уровень логирования для вашего пакета -->
+        <Logger name="com.github.eutkin.sakuga" level="debug" additivity="false">
+            <AppenderRef ref="ConsoleJsonAppender"/>
+            <!-- <AppenderRef ref="FileJsonAppender"/> -->
+        </Logger>
+        <!-- Уровень логирования для Micronaut (опционально, может быть TRACE для отладки) -->
+        <Logger name="io.micronaut" level="info" additivity="false">
+            <AppenderRef ref="ConsoleJsonAppender"/>
+            <!-- <AppenderRef ref="FileJsonAppender"/> -->
+        </Logger>
     </Loggers>
 </Configuration>
