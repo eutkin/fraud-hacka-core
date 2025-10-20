@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.github.eutkin.sakuga
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [ app-name, control-panel, graalvm, http-client, http-server-jdk, java, java-application, junit, junit-params, log4j2, lombok, management, maven, maven-enforcer-plugin, micrometer, micrometer-annotation, micronaut-aot, micronaut-http-validation, mockito, readme, redis-lettuce, serialization-jackson, shade, static-resources, testcontainers, tracing-opentelemetry-annotations, tracing-opentelemetry-exporter-jaeger, tracing-opentelemetry-exporter-logging, tracing-opentelemetry-exporter-otlp, tracing-opentelemetry-http, tracing-opentelemetry-jaeger, yaml, yaml-build ]
