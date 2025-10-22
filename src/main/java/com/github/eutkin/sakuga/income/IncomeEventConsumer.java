@@ -24,14 +24,15 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 @KafkaListener(
-        groupId = "${income.event.consumer.group-id}",
+        groupId = "${income.event.consumer.group_id}",
         batch = true,
-        threadsValue = "${income.event.consumer.thread-count}",
+        threadsValue = "${income.event.consumer.thread_count:1}",
         offsetStrategy = OffsetStrategy.DISABLED
 )
 @RequiredArgsConstructor
 @Requires(property = "outcome.event.producer.topic")
 @Requires(property = "income.event.consumer.topic")
+@Requires(property = "income.event.consumer.group_id")
 public class IncomeEventConsumer {
 
 
@@ -84,6 +85,7 @@ public class IncomeEventConsumer {
                     this.produceTimeout.toMillis(),
                     TimeUnit.MILLISECONDS
             );
+            this.eventProducer.flush();
             ack.ack();
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             ack.nack();

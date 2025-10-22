@@ -11,12 +11,13 @@
 
 ## Конфигурация
 
-| Параметр                          | Описание                          | По умолчанию |
-|-----------------------------------|-----------------------------------|--------------|
-| env.MANAGEMENT_PORT               | HTTP порт для служебных ручек     | 8085         |
-| env.OUTCOME_EVENT_PRODUCER_TOPIC  | Имя исходящего топика с событиями |              |
-| env.OUTCOME.EVENT.PRODUCE.TIMEOUT | Таймаут на отправку               | 100ms        |
-| env.INCOME.EVENT.CONSUMER.TOPIC   | Имя входящего топика с событиями  |              |
+| Параметр                           | Описание                          | По умолчанию |
+|------------------------------------|-----------------------------------|--------------|
+| env.MANAGEMENT_PORT                | HTTP порт для служебных ручек     | 8085         |
+| env.OUTCOME_EVENT_PRODUCER_TOPIC   | Имя исходящего топика с событиями |              |
+| env.OUTCOME.EVENT.PRODUCE.TIMEOUT  | Таймаут на отправку               | 100ms        |
+| env.INCOME.EVENT.CONSUMER.TOPIC    | Имя входящего топика с событиями  |              |
+| env.INCOME.EVENT.CONSUMER.GROUP_ID | Имя группы Kafka consumer         |              |
 
 ## CI
 
