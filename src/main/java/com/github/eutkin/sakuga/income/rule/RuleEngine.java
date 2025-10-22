@@ -1,4 +1,4 @@
-package com.github.eutkin.sakuga.endpont.rule;
+package com.github.eutkin.sakuga.income.rule;
 
 import com.github.eutkin.sakuga.domain.Rule;
 
