@@ -15,4 +15,7 @@ otel:
   exclusions:
     - /health
 otel.exporter.otlp.endpoint: http://localhost:4317
-#redis.uri: redis://localhost
+
+endpoints:
+  all:
+    port: ${MANAGEMENT_PORT:8085}
